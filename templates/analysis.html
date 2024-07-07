@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Data Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Heart Disease Data Analysis</h1>
+        <h2>Model Accuracy: {{ accuracy|round(4) }}</h2>
+        <h3>Age Distribution</h3>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Age Distribution" class="img-fluid">
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Back to Input</a>
+    </div>
+</body>
+</html>

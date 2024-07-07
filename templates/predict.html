@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Heart Disease Prediction</h1>
+        
+        <form action="{{ url_for('predict') }}" method="post">
+            <button type="submit" class="btn btn-primary">Train Model and Show Results</button>
+        </form>
+        
+        {% if accuracy %}
+        <h2 class="mt-4">Model Performance</h2>
+        <p>Accuracy: {{ accuracy|round(4) }}</p>
+        
+        <h3>Classification Report</h3>
+        <pre>{{ report }}</pre>
+        
+        <h3>Feature Importances</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Importance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for _, row in importances.iterrows() %}
+                <tr>
+                    <td>{{ row['feature'] }}</td>
+                    <td>{{ row['importance']|round(4) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+    </div>
+</body>
+</html>
