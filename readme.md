@@ -32,7 +32,7 @@ This is a Flask-based web application that predicts the likelihood of heart dise
 `git clone https://github.com/aliattia2/BeatCare.git cd BeatCare`
 ###2. Install the required packages:
 
-	`pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 ###3. Set up your MySQL database
 Make sure you have MySQL and MySQL Server  installed and running.
