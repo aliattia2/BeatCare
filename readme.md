@@ -82,6 +82,7 @@ Open a web browser and navigate to http://localhost:5000
 1. Home Page: Navigate through different features of the application.
 2. Data Entry: Enter individual patient data through a web form.
 3. CSV Import: Import bulk data using a CSV file.
+    IMPORT HEART.CSV FILE for training the model
 4. Data Visualization: View visualizations of the dataset.
 5. Prediction: Enter patient data to get a heart disease prediction.
 6. Analysis: View model performance metrics and feature importances.
