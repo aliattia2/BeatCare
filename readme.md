@@ -25,7 +25,8 @@ This is a Flask-based web application that predicts the likelihood of heart dise
 - pandas
 - scikit-learn
 - matplotlib
-
+- seaborn
+- 
 ## Setup
 
 ### 1. Clone the repository:
