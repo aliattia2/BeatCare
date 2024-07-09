@@ -28,17 +28,17 @@ This is a Flask-based web application that predicts the likelihood of heart dise
 
 ## Setup
 
-###1. Clone the repository:
+### 1. Clone the repository:
 `git clone https://github.com/aliattia2/BeatCare.git cd BeatCare`
-###2. Install the required packages:
+### 2. Install the required packages:
 
-	`pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
-###3. Set up your MySQL database
+### 3. Set up your MySQL database
 Make sure you have MySQL and MySQL Server  installed and running.
 
 
-####Log in to MySQL:
+#### Log in to MySQL:
 open MySQL Command Line Client
 Enter the password you set during installation.
 
@@ -51,16 +51,16 @@ then open the server by typing the following command then type the password
 
 `mysql -u root -p`
 
-####Create a new database:
+#### Create a new database:
 Create a new database named beatcare (or use another name, but update your config accordingly).
 `CREATE DATABASE beatcare;`
 
-####Create a new user and grant privileges:
+#### Create a new user and grant privileges:
 `CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON beatcare2.* TO 'your_username'@'localhost';
 FLUSH PRIVILEGES;`
 
-###4. Update the connection details in the `app.py` file:
+### 4. Update the connection details in the `app.py` file:
 
 db = mysql.connector.connect(
     host="localhost",
@@ -70,26 +70,27 @@ db = mysql.connector.connect(
 )
 
 
-###5. Run the Flask application:
+### 5. Run the Flask application:
 
 `python app.py`
 
 
 Open a web browser and navigate to http://localhost:5000
 
-#Usage
+# Usage
 
 1. Home Page: Navigate through different features of the application.
 2. Data Entry: Enter individual patient data through a web form.
 3. CSV Import: Import bulk data using a CSV file.
+    IMPORT HEART.CSV FILE for training the model
 4. Data Visualization: View visualizations of the dataset.
 5. Prediction: Enter patient data to get a heart disease prediction.
 6. Analysis: View model performance metrics and feature importances.
 
-#Contributing
+# Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-#License
+# License
 MIT
 
 
@@ -97,4 +98,4 @@ MIT
 
 
 
-###End
+### End
