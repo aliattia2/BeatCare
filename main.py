@@ -128,6 +128,7 @@ def patient_submit():
 
     return render_template('patient_submit_form.html')
 
+
 @app.route('/patient_view_data')
 @patient_required
 def patient_view_data():
