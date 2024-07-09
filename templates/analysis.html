@@ -3,16 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Disease Data Analysis</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Heart Disease Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .plot {
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Heart Disease Data Analysis</h1>
-        <h2>Model Accuracy: {{ accuracy|round(4) }}</h2>
-        <h3>Age Distribution</h3>
-        <img src="data:image/png;base64,{{ plot_url }}" alt="Age Distribution" class="img-fluid">
-        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Back to Input</a>
+    <div class="container">
+        <h1>Heart Disease Analysis Results</h1>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <h3>Total Patients</h3>
+                <p>{{ total_patients }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Heart Disease Cases</h3>
+                <p>{{ heart_disease_count }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Healthy Cases</h3>
+                <p>{{ healthy_count }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Model Accuracy</h3>
+                <p>{{ (accuracy * 100)|round(2) }}%</p>
+            </div>
+        </div>
+
+        <h2>Visualizations</h2>
+        <div class="plot">
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Heart Disease Analysis Plots">
+        </div>
+
+        <h2>Feature Importance</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Importance</th>
+            </tr>
+            {% for feature in feature_importance %}
+            <tr>
+                <td>{{ feature.feature }}</td>
+                <td>{{ feature.importance|round(4) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('doctor_dashboard') }}">Back to Dashboard</a>
     </div>
 </body>
 </html>

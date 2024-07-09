@@ -1,0 +1,3 @@
+INSERT INTO users (username, password, user_type) VALUES 
+('patient2', 'password123', 'patient'),
+('doctor2', 'password456', 'doctor');

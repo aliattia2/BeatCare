@@ -1,0 +1,28 @@
+@app.route('/patient_predict', methods=['GET', 'POST'])
+@patient_required
+def patient_predict():
+    if request.method == 'POST':
+        # Get data from form
+        input_data = [
+            float(request.form['age']),
+            float(request.form['sex']),
+            float(request.form['cp']),
+            float(request.form['trtbps']),
+            float(request.form['chol']),
+            float(request.form['fbs']),
+            float(request.form['restecg']),
+            float(request.form['thalachh']),
+            float(request.form['exng']),
+            float(request.form['oldpeak']),
+            float(request.form['slp']),
+            float(request.form['caa']),
+            float(request.form['thall'])
+        ]
+
+        # Here you should implement your actual prediction logic
+        # For now, we'll use a dummy prediction
+        prediction = "High risk" if sum(input_data) > 50 else "Low risk"
+
+        return render_template('patient_prediction_result.html', prediction=prediction)
+
+    return render_template('patient_predict_form.html')

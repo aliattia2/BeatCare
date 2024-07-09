@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <h1>Heart Disease Prediction Form</h1>
+    <form method="POST">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="sex">Sex (0 for female, 1 for male):</label>
+        <input type="number" id="sex" name="sex" min="0" max="1" required><br><br>
+
+        <label for="cp">Chest Pain Type:</label>
+        <input type="number" id="cp" name="cp" min="0" max="3" required><br><br>
+
+        <label for="trtbps">Resting Blood Pressure:</label>
+        <input type="number" id="trtbps" name="trtbps" required><br><br>
+
+        <label for="chol">Cholesterol:</label>
+        <input type="number" id="chol" name="chol" required><br><br>
+
+        <label for="fbs">Fasting Blood Sugar:</label>
+        <input type="number" id="fbs" name="fbs" min="0" max="1" required><br><br>
+
+        <label for="restecg">Resting ECG:</label>
+        <input type="number" id="restecg" name="restecg" min="0" max="2" required><br><br>
+
+        <label for="thalachh">Max Heart Rate:</label>
+        <input type="number" id="thalachh" name="thalachh" required><br><br>
+
+        <label for="exng">Exercise Induced Angina:</label>
+        <input type="number" id="exng" name="exng" min="0" max="1" required><br><br>
+
+        <label for="oldpeak">ST Depression:</label>
+        <input type="number" id="oldpeak" name="oldpeak" step="0.1" required><br><br>
+
+        <label for="slp">Slope of Peak Exercise ST Segment:</label>
+        <input type="number" id="slp" name="slp" min="0" max="2" required><br><br>
+
+        <label for="caa">Number of Major Vessels:</label>
+        <input type="number" id="caa" name="caa" min="0" max="4" required><br><br>
+
+        <label for="thall">Thalassemia:</label>
+        <input type="number" id="thall" name="thall" min="0" max="3" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>

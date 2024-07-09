@@ -1,25 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Make Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .input-group input[type="number"] {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .input-group input[type="number"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter Patient Data</h1>
-    <form method="POST">
-        <label>Age: <input type="number" name="age" required></label><br>
-        <label>Sex: <input type="number" name="sex" required></label><br>
-        <label>CP: <input type="number" name="cp" required></label><br>
-        <label>Trtbps: <input type="number" name="trtbps" required></label><br>
-        <label>Chol: <input type="number" name="chol" required></label><br>
-        <label>FBS: <input type="number" name="fbs" required></label><br>
-        <label>Restecg: <input type="number" name="restecg" required></label><br>
-        <label>Thalachh: <input type="number" name="thalachh" required></label><br>
-        <label>Exng: <input type="number" name="exng" required></label><br>
-        <label>Oldpeak: <input type="number" step="0.1" name="oldpeak" required></label><br>
-        <label>Slp: <input type="number" name="slp" required></label><br>
-        <label>Caa: <input type="number" name="caa" required></label><br>
-        <label>Thall: <input type="number" name="thall" required></label><br>
-        <input type="submit" value="Predict">
-    </form>
+    <div class="header">
+        <h2>Heart Disease Prediction</h2>
+    </div>
+    <div class="container">
+        <h1>Heart Disease Data Input</h1>
+        <form method="POST">
+            <div class="input-group">
+                <label for="age">Age of the patient (numeric)</label>
+                <input type="number" id="age" name="age" placeholder="Age" required>
+            </div>
+            <div class="input-group">
+                <label for="sex">Sex of the patient (0 = female, 1 = male)</label>
+                <input type="number" id="sex" name="sex" min="0" max="1" placeholder="Sex" required>
+            </div>
+            <div class="input-group">
+                <label for="cp">Chest pain type (0-3)</label>
+                <input type="number" id="cp" name="cp" min="0" max="3" placeholder="Chest Pain Type" required>
+            </div>
+            <div class="input-group">
+                <label for="trtbps">Resting blood pressure in mm Hg (numeric)</label>
+                <input type="number" id="trtbps" name="trtbps" placeholder="Resting Blood Pressure" required>
+            </div>
+            <div class="input-group">
+                <label for="chol">Serum cholesterol in mg/dl (numeric)</label>
+                <input type="number" id="chol" name="chol" placeholder="Cholesterol" required>
+            </div>
+            <div class="input-group">
+                <label for="fbs">Fasting blood sugar > 120 mg/dl (0 = false, 1 = true)</label>
+                <input type="number" id="fbs" name="fbs" min="0" max="1" placeholder="Fasting Blood Sugar" required>
+            </div>
+            <div class="input-group">
+                <label for="restecg">Resting electrocardiographic results (0-2)</label>
+                <input type="number" id="restecg" name="restecg" min="0" max="2" placeholder="Resting ECG" required>
+            </div>
+            <div class="input-group">
+                <label for="thalachh">Maximum heart rate achieved (numeric)</label>
+                <input type="number" id="thalachh" name="thalachh" placeholder="Maximum Heart Rate" required>
+            </div>
+            <div class="input-group">
+                <label for="exng">Exercise induced angina (0 = no, 1 = yes)</label>
+                <input type="number" id="exng" name="exng" min="0" max="1" placeholder="Exercise Induced Angina" required>
+            </div>
+            <div class="input-group">
+                <label for="oldpeak">ST depression induced by exercise relative to rest (numeric)</label>
+                <input type="number" step="0.1" id="oldpeak" name="oldpeak" placeholder="ST Depression" required>
+            </div>
+            <div class="input-group">
+                <label for="slp">The slope of the peak exercise ST segment (0-2)</label>
+                <input type="number" id="slp" name="slp" min="0" max="2" placeholder="Slope of Peak Exercise ST" required>
+            </div>
+            <div class="input-group">
+                <label for="caa">Number of major vessels colored by fluoroscopy (0-3)</label>
+                <input type="number" id="caa" name="caa" min="0" max="3" placeholder="Number of Major Vessels" required>
+            </div>
+            <div class="input-group">
+                <label for="thall">Thalassemia (0-3)</label>
+                <input type="number" id="thall" name="thall" min="0" max="3" placeholder="Thalassemia" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
 </body>
 </html>

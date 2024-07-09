@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Submitted Health Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Submitted Health Data</h1>
+    {% if data %}
+        <table>
+            <tr>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Chest Pain Type</th>
+                <th>Resting BP</th>
+                <th>Cholesterol</th>
+                <th>Fasting BS</th>
+                <th>Resting ECG</th>
+                <th>Max Heart Rate</th>
+                <th>Exercise Angina</th>
+                <th>ST Depression</th>
+                <th>ST Slope</th>
+                <th>Major Vessels</th>
+                <th>Thalassemia</th>
+                <th>Output</th>
+            </tr>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row.age }}</td>
+                    <td>{{ row.sex }}</td>
+                    <td>{{ row.cp }}</td>
+                    <td>{{ row.trtbps }}</td>
+                    <td>{{ row.chol }}</td>
+                    <td>{{ row.fbs }}</td>
+                    <td>{{ row.restecg }}</td>
+                    <td>{{ row.thalachh }}</td>
+                    <td>{{ row.exng }}</td>
+                    <td>{{ row.oldpeak }}</td>
+                    <td>{{ row.slp }}</td>
+                    <td>{{ row.caa }}</td>
+                    <td>{{ row.thall }}</td>
+                    <td>{{ row.output }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>You haven't submitted any health data yet.</p>
+    {% endif %}
+    <a href="{{ url_for('patient_dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
