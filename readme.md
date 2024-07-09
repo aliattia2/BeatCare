@@ -77,6 +77,15 @@ db = mysql.connector.connect(
 
 Open a web browser and navigate to http://localhost:5000
 
+use the following credentials
+patient1
+password123
+patient
+
+doctor1
+password456
+doctor
+
 # Usage
 
 1. Home Page: Navigate through different features of the application.
@@ -88,7 +97,8 @@ Open a web browser and navigate to http://localhost:5000
 
 # Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
+any inquiries contact me directly by e-mail
+aliattia2@gmail.com
 # License
 MIT
 
