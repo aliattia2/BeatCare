@@ -47,9 +47,6 @@ cursor.execute("""
     )
 """)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 
 @app.route('/make_prediction', methods=['GET', 'POST'])
